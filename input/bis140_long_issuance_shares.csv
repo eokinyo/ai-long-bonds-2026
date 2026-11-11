@@ -1,0 +1,13 @@
+# Source: https://www.bis.org/publications/bulletin-140-building-ai-credit-structures-and-spillovers.pdf
+# BIS Bulletin no 140, Drehmann and Eren, "Building AI on credit: structures and spillovers",
+# p. 6 and Graph 3.C, released 27 October 2026.
+# Values typed from the text, not scraped. The Bulletin writes "about" for the 2024 shares
+# and for the 2026 corporate share; the 2026 Treasury share is given as 13 percent.
+# Quote: "In 2026, hyperscaler bonds with maturities of 10 years or more accounted for
+# about 24% of corporate issuance at those maturities and 13% of gross Treasury issuance,
+# up from about 3% and 1.5%, respectively, in 2024 (Graph 3.C)."
+market,year,share_percent,approximately
+corporate,2024,3,yes
+corporate,2026,24,yes
+treasury,2024,1.5,yes
+treasury,2026,13,no
