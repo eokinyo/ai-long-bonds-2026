@@ -15,13 +15,17 @@ WEBSITE_WIDTH_PX = 1600
 WEBSITE_HEIGHT_PX = 950
 DPI = 100
 FIGSIZE = (WEBSITE_WIDTH_PX / DPI, WEBSITE_HEIGHT_PX / DPI)  # 16 x 9.5 in
-CAPTION = "Source: author's calculations"
+CAPTION_FIG1 = "Source: US Treasury; author's calculations"
+CAPTION_FIG2 = "Source: BIS Bulletin 140 (Graph 3.C); author's calculations"
+CAPTION = CAPTION_FIG1  # default for add_caption
 SVG_HASHSALT = "ai-long-bonds-2026"
 
 USER_AGENT = "Mozilla/5.0 (compatible; ai-long-bonds-2026; research)"
 
 TREASURY_YEARS = (2024, 2025, 2026)
 TREASURY_START = "2024-01-02"
+# Pinned to the last observation used in the W47 article, so reruns reproduce it.
+TREASURY_END = "2026-11-10"
 HIGH_30_YEAR_DATE = "2026-10-07"
 
 BIS140_PDF = (

@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from common import BIS140_PDF, BIS140_SHARES, CAPTION, OUTPUT, WEBSITE_HEIGHT_PX, WEBSITE_WIDTH_PX  # noqa: E402
+from common import BIS140_PDF, BIS140_SHARES, CAPTION_FIG2, OUTPUT, WEBSITE_HEIGHT_PX, WEBSITE_WIDTH_PX  # noqa: E402
 from fig2_ai_issuance_shares import bar_label, load_shares  # noqa: E402
 
 EXPECTED = {
@@ -49,4 +49,4 @@ def test_chart2_outputs_exist_at_website_width():
     svg_text = svg.read_text(encoding="utf-8")
     assert f'width="{WEBSITE_WIDTH_PX}px"' in svg_text
     assert f'height="{WEBSITE_HEIGHT_PX}px"' in svg_text
-    assert CAPTION in svg_text
+    assert CAPTION_FIG2 in svg_text.replace("&apos;", "'")

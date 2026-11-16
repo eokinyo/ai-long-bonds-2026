@@ -9,7 +9,7 @@ typed from BIS Bulletin 140, page 6. No other figures are typed in by hand.
 | 1. US Treasury yields since 2024: daily par yields, 2 year, 10 year and 30 year, 2 Jan 2024 to the latest date, with the 7 Oct 2026 30 year high marked | `fig1_us_treasury_yields.py` | `output/fig1_us_treasury_yields.png`, `.svg` and `.csv` |
 | 2. AI firms' share of long dated bond issuance: grouped bars for 2024 against 2026 (share of corporate issuance and of gross Treasury issuance at 10 years or more) | `fig2_ai_issuance_shares.py` | `output/fig2_ai_issuance_shares.png` and `.svg` |
 
-Both charts are 1600 px wide. The caption on each chart is "Source: author's calculations".
+Both charts are 1600 px wide. Chart 1 carries the line "Source: US Treasury; author's calculations" and Chart 2 "Source: BIS Bulletin 140 (Graph 3.C); author's calculations". Chart 1 uses Treasury data through 10 Nov 2026, the last date in the W47 article.
 Labels use open compounds ("30 year", "long dated"), not hyphenated forms.
 
 ## Sources

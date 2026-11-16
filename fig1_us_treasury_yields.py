@@ -4,11 +4,12 @@ from __future__ import annotations
 import pandas as pd
 
 from common import (
-    CAPTION,
+    CAPTION_FIG1,
     DATA,
     FIGSIZE,
     HIGH_30_YEAR_DATE,
     OUTPUT,
+    TREASURY_END,
     TREASURY_START,
     TREASURY_YEARS,
     add_caption,
@@ -68,7 +69,7 @@ def tidy_yields(paths: list[tuple[int, object]] | None = None) -> pd.DataFrame:
         frames.append(part[["date", *MATURITIES.values()]])
     df = pd.concat(frames, ignore_index=True)
     df = df.drop_duplicates(subset=["date"], keep="last")
-    df = df[df["date"] >= pd.Timestamp(TREASURY_START)].sort_values("date")
+    df = df[(df["date"] >= pd.Timestamp(TREASURY_START)) & (df["date"] <= pd.Timestamp(TREASURY_END))].sort_values("date")
     gap = df[list(MATURITIES.values())].isna().any()
     if gap.any():
         bad = gap[gap].index.tolist()
@@ -136,7 +137,7 @@ def plot_yields(df: pd.DataFrame, output_dir=None) -> object:
     ax.set_xlim(pd.Timestamp("2024-01-01"), df["date"].max())
     ax.margins(x=0)
     fig.subplots_adjust(left=0.07, right=0.82, top=0.88, bottom=0.12)
-    add_caption(fig, CAPTION)
+    add_caption(fig, CAPTION_FIG1)
     save_chart(fig, stem)
     plt.close(fig)
     return stem

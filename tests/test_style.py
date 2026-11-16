@@ -5,7 +5,7 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from common import CAPTION, OUTPUT  # noqa: E402
+from common import CAPTION_FIG1, CAPTION_FIG2, OUTPUT  # noqa: E402
 from fig1_us_treasury_yields import plot_yields, tidy_yields  # noqa: E402
 from fig2_ai_issuance_shares import load_shares, plot_shares  # noqa: E402
 
@@ -13,13 +13,17 @@ FORBIDDEN = ("30-year", "10-year", "2-year", "long-dated", "long-term")
 
 
 def test_caption_text():
-    assert CAPTION == "Source: author's calculations"
+    assert CAPTION_FIG1 == "Source: US Treasury; author's calculations"
+    assert CAPTION_FIG2 == "Source: BIS Bulletin 140 (Graph 3.C); author's calculations"
 
 
 def test_output_svgs_have_caption_and_no_hyphenated_labels():
-    for name in ("fig1_us_treasury_yields.svg", "fig2_ai_issuance_shares.svg"):
+    for name, caption in (
+        ("fig1_us_treasury_yields.svg", CAPTION_FIG1),
+        ("fig2_ai_issuance_shares.svg", CAPTION_FIG2),
+    ):
         text = (OUTPUT / name).read_text(encoding="utf-8")
-        assert CAPTION in text
+        assert caption in text.replace("&apos;", "'")
         lower = text.lower()
         for phrase in FORBIDDEN:
             assert phrase not in lower, (name, phrase)
