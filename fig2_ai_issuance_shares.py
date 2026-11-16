@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import pandas as pd
 
-from common import BIS140_SHARES, CAPTION, FIGSIZE, OUTPUT, add_caption, save_chart, style
+from common import BIS140_SHARES, CAPTION_FIG2, FIGSIZE, OUTPUT, add_caption, save_chart, style
 
 STEM = OUTPUT / "fig2_ai_issuance_shares"
 
@@ -90,7 +90,7 @@ def plot_shares(df: pd.DataFrame, output_dir=None) -> object:
     ax.legend(frameon=False, loc="upper left")
     ax.tick_params(axis="x", length=0)
     fig.subplots_adjust(left=0.08, right=0.97, top=0.88, bottom=0.16)
-    add_caption(fig, CAPTION)
+    add_caption(fig, CAPTION_FIG2)
     save_chart(fig, stem)
     plt.close(fig)
     return stem
